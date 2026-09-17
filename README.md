@@ -244,7 +244,7 @@ cd solid-dip-alta-usuario
 
 ## Configuración y seguridad
 
-Antes de ejecutar el proyecto (y **antes de publicarlo**), revisar estos puntos:
+Antes de ejecutar el proyecto, revisar estos puntos:
 
 - `Ejemplo/appsettings.json` incluye una cadena de conexión de **ejemplo** para uso local:
 
@@ -262,7 +262,7 @@ Antes de ejecutar el proyecto (y **antes de publicarlo**), revisar estos puntos:
   $env:ConnectionStrings__Postgres = "Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=TU_PASSWORD"
   ```
 
-- `Ejemplo/Data/usuarios.json` se genera en tiempo de ejecución cuando se usa el modo JSON. **No debe subirse al repositorio** (contiene datos de prueba y hashes de contraseñas).
+- `Ejemplo/Data/usuarios.json` se genera en tiempo de ejecución cuando se usa el modo JSON. 
 - El frontend usa `NEXT_PUBLIC_API_URL` para apuntar al backend; no hay secretos en el frontend por defecto.
 
 ---
@@ -302,9 +302,9 @@ Los usuarios se guardan en `Ejemplo/Data/usuarios.json`.
 1. Iniciar el servicio de PostgreSQL.
 2. Crear la tabla utilizando el script incluido:
 
-   ```powershell
-  psql -h localhost -U postgres -d postgres -f database.sql
-   ```
+    ```powershell
+    psql -h localhost -U postgres -d postgres -f database.sql
+    ```
 
 3. Revisar la cadena de conexión en `Ejemplo/appsettings.json` (ver [Configuración y seguridad](#configuración-y-seguridad)).
 4. Confirmar en `Program.cs` que esté registrada la implementación PostgreSQL:
