@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Alta de Usuario - DIP y Repository",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    {
+      "id": "use-case",
+      "type": "backend",
+      "label": "AltaUsuarioUseCase",
+      "sublabel": "Caso de uso",
+      "pos": [80, 240],
+      "size": [190, 70]
+    },
+    {
+      "id": "repository-interface",
+      "type": "backend",
+      "label": "IUsuarioRepository",
+      "sublabel": "Abstraccion DIP",
+      "tag": "DIP",
+      "pos": [360, 240],
+      "size": [190, 70]
+    },
+    {
+      "id": "json-repository",
+      "type": "backend",
+      "label": "JsonUsuarioRepository",
+      "sublabel": "Data/usuarios.json",
+      "pos": [680, 120],
+      "size": [210, 70]
+    },
+    {
+      "id": "postgres-repository",
+      "type": "backend",
+      "label": "PostgresUsuarioRepository",
+      "sublabel": "Npgsql / PostgreSQL",
+      "pos": [680, 360],
+      "size": [230, 70]
+    },
+    {
+      "id": "json-storage",
+      "type": "database",
+      "label": "usuarios.json",
+      "sublabel": "Persistencia local",
+      "pos": [1010, 120],
+      "size": [180, 70]
+    },
+    {
+      "id": "postgres-storage",
+      "type": "database",
+      "label": "PostgreSQL",
+      "sublabel": "Base de datos",
+      "pos": [1010, 360],
+      "size": [180, 70]
+    }
+  ],
+  "boundaries": [],
+  "connections": [
+    {
+      "id": "use-case-depends-on-interface",
+      "from": "use-case",
+      "to": "repository-interface",
+      "label": "depende de la abstraccion",
+      "variant": "emphasis",
+      "labelDy": -29
+    },
+    {
+      "id": "json-implements-interface",
+      "from": "json-repository",
+      "to": "repository-interface",
+      "label": "implementa",
+      "variant": "dashed"
+    },
+    {
+      "id": "postgres-implements-interface",
+      "from": "postgres-repository",
+      "to": "repository-interface",
+      "label": "implementa",
+      "variant": "dashed"
+    },
+    {
+      "id": "json-persists",
+      "from": "json-repository",
+      "to": "json-storage",
+      "label": "persiste"
+    },
+    {
+      "id": "postgres-persists",
+      "from": "postgres-repository",
+      "to": "postgres-storage",
+      "label": "persiste"
+    }
+  ]
+}

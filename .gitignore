@@ -1,0 +1,23 @@
+# Archivos de configuración local y secretos
+.env
+.env.local
+.env.development.local
+appsettings.Development.json
+appsettings.json
+
+# Archivos de datos generados en runtime
+Ejemplo/Data/usuarios.json
+*.json.user
+
+# Backend C# (.NET)
+bin/
+obj/
+.vs/
+*.user
+
+# Frontend (Node / Next.js)
+node_modules/
+.next/
+out/
+build/
+.DS_Store

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap');
+
+:root { --ink: #202124; --paper: #f5f1e8; --accent: #d95d39; --line: #cfc7b8; }
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: radial-gradient(circle at 80% 0%, #f6c978 0, transparent 32%), var(--paper); font-family: 'DM Sans', sans-serif; }
+main { display: grid; grid-template-columns: minmax(240px, .8fr) minmax(320px, 1.2fr); gap: 5rem; max-width: 1050px; margin: auto; padding: 12vh 2rem; }
+.intro { align-self: start; position: sticky; top: 3rem; }
+.eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+h1 { max-width: 480px; margin: 1rem 0; font: 700 clamp(2.8rem, 7vw, 5.8rem)/.93 'Space Grotesk', sans-serif; letter-spacing: 0; }
+.intro p:last-child { max-width: 360px; font-size: 1.1rem; line-height: 1.6; }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; padding: 2rem; background: rgba(255,255,255,.48); border: 1px solid var(--line); box-shadow: 12px 12px 0 #e6d7be; }
+.field-row { display: grid; grid-column: 1 / -1; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; }
+.field-row.full-width { grid-template-columns: 1fr; }
+.field-row label { display: flex; flex-direction: column; width: 100%; }
+label { display: grid; gap: .45rem; font-size: .85rem; font-weight: 700; }
+input, select { width: 100%; border: 1px solid var(--line); background: #fffdf8; padding: .85rem; color: var(--ink); font: inherit; }
+input:focus { outline: 2px solid var(--accent); outline-offset: 2px; }
+button { grid-column: 1 / -1; border: 0; background: var(--accent); color: white; padding: 1rem; font: 700 1rem 'Space Grotesk', sans-serif; cursor: pointer; }
+button:disabled { opacity: .6; cursor: wait; }
+.message { grid-column: 1 / -1; margin: 0; font-weight: 700; }
+@media (max-width: 720px) { main { display: block; padding: 3rem 1rem; } .intro { position: static; margin-bottom: 3rem; } .form { grid-template-columns: 1fr; box-shadow: 6px 6px 0 #e6d7be; } button, .message { grid-column: auto; } }
