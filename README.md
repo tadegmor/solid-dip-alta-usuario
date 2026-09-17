@@ -78,7 +78,7 @@ El siguiente diagrama ilustra la aplicación del Principio de Inversión de Depe
 
 ![Diagrama de dominio y arquitectura por capas](docs/archify/solid-dip.png)
 
-[Ver diagrama interactivo de arquitectura (HTML)](https://htmlpreview.github.io/?https://github.com/tadegmor/solid-dip-alta-usuario/blob/main/docs/archify/solid-dip.html)
+[Ver diagrama interactivo de arquitectura (HTML)](https://tadegmor.github.io/solid-dip-alta-usuario/archify/solid-dip.html)
 ---
 
 ## Inversión de Dependencias (DIP)
