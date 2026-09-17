@@ -235,11 +235,9 @@ git --version
 
 ## Clonar el repositorio
 
-Reemplazar `<URL_DEL_REPOSITORIO>` por la URL real del repositorio de GitHub:
-
 ```powershell
-git clone <URL_DEL_REPOSITORIO>
-cd Problematica-SOLID
+git clone https://github.com/tadegmor/solid-dip-alta-usuario.git
+cd solid-dip-alta-usuario
 ```
 
 ---
@@ -271,22 +269,28 @@ Antes de ejecutar el proyecto (y **antes de publicarlo**), revisar estos puntos:
 
 ## Ejecutar el backend
 
+> **Nota:** Todos los comandos de esta sección se ejecutan posicionándote en la carpeta `Ejemplo`.
+
 ### Opción A: persistencia JSON
 
 Esta opción no requiere PostgreSQL.
 
-1. Abrir `Ejemplo/Program.cs`.
-2. Activar el repositorio JSON y comentar el repositorio PostgreSQL:
+1. Desde la raíz del repositorio, navegar a la carpeta del backend:
+
+  ```powershell
+  cd Ejemplo
+  ```
+
+2. Abrir `Program.cs`, activar el repositorio JSON y comentar el repositorio PostgreSQL:
 
    ```csharp
    builder.Services.AddSingleton<IUsuarioRepository, JsonUsuarioRepository>();
    // builder.Services.AddScoped<IUsuarioRepository, PostgresUsuarioRepository>();
    ```
 
-3. Ejecutar la API:
+3. Restaurar dependencias y ejecutar la API:
 
    ```powershell
-   cd Ejemplo
    dotnet restore
    dotnet run --urls http://localhost:5000
    ```
@@ -299,33 +303,47 @@ Los usuarios se guardan en `Ejemplo/Data/usuarios.json`.
 2. Crear la tabla utilizando el script incluido:
 
    ```powershell
-   psql -h localhost -U postgres -d postgres -f Ejemplo/database.sql
+  psql -h localhost -U postgres -d postgres -f database.sql
    ```
 
 3. Revisar la cadena de conexión en `Ejemplo/appsettings.json` (ver [Configuración y seguridad](#configuración-y-seguridad)).
-4. Confirmar en `Ejemplo/Program.cs` que esté registrada la implementación PostgreSQL:
+4. Confirmar en `Program.cs` que esté registrada la implementación PostgreSQL:
 
    ```csharp
    // builder.Services.AddSingleton<IUsuarioRepository, JsonUsuarioRepository>();
    builder.Services.AddScoped<IUsuarioRepository, PostgresUsuarioRepository>();
    ```
 
-5. Ejecutar la API:
+5. Restaurar dependencias y ejecutar la API:
 
    ```powershell
-   cd Ejemplo
    dotnet restore
    dotnet run --urls http://localhost:5000
    ```
+
+> **Para alternar entre JSON y PostgreSQL:** abrí `Ejemplo/Program.cs` y elegí cuál línea dejar activa en el registro de dependencias antes de ejecutar `dotnet run`.
 
 ---
 
 ## Ejecutar el frontend
 
-Abrir una segunda terminal desde la raíz del repositorio:
+> **Nota:** Abrí una **segunda terminal** para el frontend.
+
+Si estás parado en la raíz del repositorio:
 
 ```powershell
 cd frontend
+```
+
+Si tu terminal está parada dentro de la carpeta `Ejemplo`:
+
+```powershell
+cd ../frontend
+```
+
+Instalar dependencias e iniciar:
+
+```powershell
 npm install
 npm run dev
 ```
