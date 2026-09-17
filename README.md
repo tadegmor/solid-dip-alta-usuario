@@ -136,11 +136,11 @@ flowchart LR
     JsonData[("usuarios.json")]
     PostgresData[("PostgreSQL")]
 
-    UseCase -->|"depende de"| Contract
-    Json -.->|"implementa"| Contract
-    Postgres -.->|"implementa"| Contract
-    Json -->|"persiste"| JsonData
-    Postgres -->|"persiste"| PostgresData
+    UseCase -->|depende de| Contract
+    Json -.->|implementa| Contract
+    Postgres -.->|implementa| Contract
+    Json -->|persiste| JsonData
+    Postgres -->|persiste| PostgresData
 
     classDef usecase fill:#dbeafe,stroke:#2563eb,color:#111827
     classDef contract fill:#fef3c7,stroke:#d97706,color:#111827
