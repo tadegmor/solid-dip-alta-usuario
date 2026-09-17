@@ -78,6 +78,7 @@ El siguiente diagrama muestra el modelo de dominio del alta de usuario (entidade
 
 ![Diagrama de dominio y arquitectura por capas](docs/archify/solid-dip.png)
 
+Link al diagrama: docs/archify/solid-dip.html
 ---
 
 ## Inversión de Dependencias (DIP)
