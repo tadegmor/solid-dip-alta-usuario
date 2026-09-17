@@ -74,11 +74,11 @@ IUsuarioRepository
 
 El controlador recibe la solicitud HTTP y delega la operación al caso de uso. El caso de uso contiene las reglas de negocio y solo conoce la abstracción `IUsuarioRepository`. Las implementaciones concretas se encargan de persistir los datos en JSON o PostgreSQL.
 
-El siguiente diagrama muestra el modelo de dominio del alta de usuario (entidades `Usuario`, `Dirección`, `Localidad`) y cómo se distribuyen las responsabilidades entre la capa de presentación (frontend), el controller, los servicios y el repositorio:
+El siguiente diagrama ilustra la aplicación del Principio de Inversión de Dependencias (DIP): el caso de uso (`AltaUsuarioUseCase`) depende de una abstracción (`IUsuarioRepository`), lo que permite alternar dinámicamente entre una persistencia local en JSON (`JsonUsuarioRepository`) y una base de datos relacional (`PostgresUsuarioRepository`) sin modificar la lógica de negocio.
 
 ![Diagrama de dominio y arquitectura por capas](docs/archify/solid-dip.png)
 
-Link al diagrama: docs/archify/solid-dip.html
+[Ver diagrama interactivo de arquitectura (HTML)](docs/archify/solid-dip.html)
 ---
 
 ## Inversión de Dependencias (DIP)
