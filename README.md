@@ -208,7 +208,7 @@ builder.Services.AddScoped<AltaUsuarioUseCase>();
 
 El controlador y `AltaUsuarioUseCase` no cambian al alternar entre ambas opciones. Esta es la aplicación concreta del DIP: la decisión sobre la infraestructura queda concentrada en el composition root, que en este caso es `Program.cs`.
 
-> La configuración actual del repositorio utiliza PostgreSQL. Para ejecutar el proyecto sin instalar PostgreSQL, activar la línea de `JsonUsuarioRepository` y comentar la de `PostgresUsuarioRepository`.
+> La configuración actual del repositorio utiliza la persistencia en **JSON** (`JsonUsuarioRepository`). Para utilizar PostgreSQL, basta con comentar esa línea e inactivar el repositorio JSON, activando en su lugar la de `PostgresUsuarioRepository` en el registro de dependencias (Inyección de Dependencias en C#).
 
 ---
 
